@@ -56,13 +56,13 @@ export function ServicesDepthSection({ services }: ServicesDepthSectionProps) {
             viewport={{ once: true, amount: 0.25 }}
             className="max-w-3xl space-y-4"
           >
-            <motion.p variants={editorialHierarchyItemVariants(withBlur)} className="text-xs tracking-[0.25em] uppercase text-black/55">
+            <motion.p variants={editorialHierarchyItemVariants(withBlur)} className="text-xs tracking-[0.25em] uppercase text-[color:var(--color-muted-3)]">
               Servicios
             </motion.p>
             <motion.h2 variants={editorialHierarchyItemVariants(withBlur)} className="font-serif text-4xl leading-tight sm:text-5xl lg:text-6xl">
               Capacidades integradas entre arquitectura y estrategia espacial.
             </motion.h2>
-            <motion.p variants={editorialHierarchyItemVariants(withBlur)} className="max-w-2xl text-sm leading-relaxed text-black/65 sm:text-base">
+            <motion.p variants={editorialHierarchyItemVariants(withBlur)} className="max-w-2xl text-sm leading-relaxed text-[color:var(--color-muted-2)] sm:text-base">
               Nuestro modelo de servicio se adapta a cada cronograma, desde factibilidad temprana hasta documentación completa y coordinación de obra.
             </motion.p>
           </motion.div>

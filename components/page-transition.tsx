@@ -39,7 +39,7 @@ export function PageTransition({ children }: PageTransitionProps) {
         >
           {!shouldReduceMotion ? (
             <motion.div
-              className="pointer-events-none fixed inset-0 z-40 bg-black/10"
+              className="pointer-events-none fixed inset-0 z-40 bg-[color:var(--color-route-overlay)]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 0 }}
               exit={{ opacity: 1 }}

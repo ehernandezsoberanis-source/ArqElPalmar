@@ -21,7 +21,7 @@ export function ProjectsMap({ projects, hoveredProjectSlug }: ProjectsMapProps) 
   const center: [number, number] = [25.7921, -80.1423];
 
   return (
-    <div className="overflow-hidden rounded-sm border border-black/10 bg-black/80">
+    <div className="overflow-hidden rounded-sm border border-[color:var(--color-border)] bg-[color:var(--color-map-shell)]">
       <div className="h-[320px] w-full sm:h-[420px] lg:h-[520px]">
         <MapContainer
           center={center}

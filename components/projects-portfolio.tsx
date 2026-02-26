@@ -9,7 +9,7 @@ import type { Project, ProjectCategory } from "@/lib/site-data";
 const ProjectsMap = dynamic(() => import("@/components/projects-map").then((mod) => mod.ProjectsMap), {
   ssr: false,
   loading: () => (
-    <div className="h-[320px] w-full animate-pulse rounded-sm border border-black/10 bg-black/15 sm:h-[420px] lg:h-[520px]" />
+    <div className="h-[320px] w-full animate-pulse rounded-sm border border-[color:var(--color-border)] bg-[color:var(--color-card-tint)] sm:h-[420px] lg:h-[520px]" />
   ),
 });
 
@@ -44,7 +44,9 @@ export function ProjectsPortfolio({ projects, categories }: ProjectsPortfolioPro
                 type="button"
                 onClick={() => setActiveCategory(category)}
                 className={`relative rounded-full border px-4 py-2 text-[11px] tracking-[0.22em] uppercase transition-colors ${
-                  isActive ? "border-black bg-black text-white" : "border-black/15 bg-transparent text-black/65 hover:border-black/35"
+                  isActive
+                    ? "border-[color:var(--color-ink)] bg-[color:var(--color-ink)] text-[color:var(--color-paper)]"
+                    : "border-[color:var(--color-border)] bg-transparent text-[color:var(--color-muted-2)] hover:border-[color:var(--color-border-strong)]"
                 }`}
                 whileTap={{ scale: 0.98 }}
               >
@@ -52,7 +54,7 @@ export function ProjectsPortfolio({ projects, categories }: ProjectsPortfolioPro
                 {isActive ? (
                   <motion.span
                     layoutId="portfolio-filter-active"
-                    className="absolute inset-0 -z-10 rounded-full border border-black bg-black"
+                    className="absolute inset-0 -z-10 rounded-full border border-[color:var(--color-ink)] bg-[color:var(--color-ink)]"
                     transition={{ duration: 0.35 }}
                   />
                 ) : null}
@@ -87,10 +89,10 @@ export function ProjectsPortfolio({ projects, categories }: ProjectsPortfolioPro
       <section className="space-y-5 pt-4 sm:pt-8">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs tracking-[0.24em] uppercase text-black/48">Mapa de proyectos</p>
+            <p className="text-xs tracking-[0.24em] uppercase text-[color:var(--color-muted-4)]">Mapa de proyectos</p>
             <h3 className="mt-2 font-serif text-3xl leading-tight sm:text-4xl">Exploración geográfica del portafolio</h3>
           </div>
-          <p className="hidden max-w-xs text-right text-xs leading-relaxed text-black/55 sm:block">
+          <p className="hidden max-w-xs text-right text-xs leading-relaxed text-[color:var(--color-muted-3)] sm:block">
             Pasa el cursor sobre una tarjeta para resaltar su ubicación en el mapa.
           </p>
         </div>

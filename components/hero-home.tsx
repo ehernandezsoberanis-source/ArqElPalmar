@@ -77,7 +77,7 @@ export function HeroHome({ eyebrow, title, subheadline, secondaryLine }: HeroHom
 
         <div className="mx-auto w-full max-w-7xl px-5 pb-10 sm:px-8 sm:pb-14 lg:px-12 lg:pb-18">
           <motion.p
-            className="text-xs tracking-[0.3em] uppercase text-white/75"
+            className="text-[11px] tracking-[0.34em] uppercase text-white/64"
             initial={disableIntroAnimation ? false : { opacity: 0, y: 14 }}
             animate={disableIntroAnimation ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: cinematicEase }}
@@ -91,11 +91,11 @@ export function HeroHome({ eyebrow, title, subheadline, secondaryLine }: HeroHom
           >
             <AnimatedHeadline
               text={title}
-              className="max-w-5xl text-4xl leading-[0.95] text-white sm:text-6xl lg:text-7xl"
+              className="max-w-5xl text-4xl leading-[1.02] tracking-[-0.022em] text-white sm:text-6xl lg:text-7xl"
             />
           </motion.div>
 
-          <motion.div style={{ y: copyY, maxWidth: subMaxWidth }}>
+          <motion.div style={{ y: copyY, maxWidth: subMaxWidth }} className="max-w-2xl">
             <motion.p
               style={{
                 scale: subheadlineScale,
@@ -103,7 +103,7 @@ export function HeroHome({ eyebrow, title, subheadline, secondaryLine }: HeroHom
                 y: subheadlineY,
                 filter: subheadlineBlur,
               }}
-              className="mt-7 text-sm leading-relaxed text-white/82 sm:text-base"
+              className="mt-7 text-[14px] leading-[1.9] text-white/74 sm:text-[15px]"
               initial={disableIntroAnimation ? false : { opacity: 0, y: 10 }}
               animate={disableIntroAnimation ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.72, ease: cinematicEase }}
@@ -118,7 +118,7 @@ export function HeroHome({ eyebrow, title, subheadline, secondaryLine }: HeroHom
                 y: secondaryY,
                 filter: secondaryBlur,
               }}
-              className="mt-4 max-w-lg text-sm leading-relaxed text-white/66 sm:text-[15px]"
+              className="mt-4 max-w-xl text-[13px] leading-[1.9] text-white/58 sm:text-[14px]"
               initial={disableIntroAnimation ? false : { opacity: 0, y: 10 }}
               animate={disableIntroAnimation ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.92, ease: cinematicEase }}

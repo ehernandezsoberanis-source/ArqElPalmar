@@ -41,7 +41,7 @@ export function SiteHeader() {
     <motion.header
       className={`sticky top-0 z-30 transition-colors duration-500 ${
         scrolled
-          ? "border-b border-black/10 bg-[color:var(--color-paper)]/78 shadow-[0_8px_26px_rgba(0,0,0,0.06)] backdrop-blur-xl"
+          ? "border-b border-[color:var(--color-border)] bg-[color:var(--color-paper)] shadow-[var(--shadow-header)] backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       }`}
       animate={{ opacity: 1 }}
@@ -61,7 +61,7 @@ export function SiteHeader() {
           {navItems.map((item) => (
             <Link key={item.href} href={item.href} className="group relative transition-opacity hover:opacity-80">
               <span>{item.label}</span>
-              <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-black/70 transition-transform duration-300 group-hover:scale-x-100" />
+              <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-[color:var(--color-muted-1)] transition-transform duration-300 group-hover:scale-x-100" />
             </Link>
           ))}
         </nav>

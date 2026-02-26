@@ -84,7 +84,7 @@ export function ProjectCaseStudy({ project, previousProject, nextProject }: Proj
       </section>
 
       <RevealSection className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 sm:py-12 lg:px-12">
-        <div className="grid gap-6 border-y border-black/10 py-6 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-6 border-y border-[color:var(--color-border)] py-6 sm:grid-cols-2 lg:grid-cols-5">
           <FactItem label="Ubicación" value={project.location} />
           <FactItem label="Año" value={project.year} />
           <FactItem label="Servicios" value={project.services.join(", ")} />
@@ -100,7 +100,7 @@ export function ProjectCaseStudy({ project, previousProject, nextProject }: Proj
               <motion.button
                 type="button"
                 onClick={() => setLightboxIndex(index)}
-                className="group block w-full overflow-hidden rounded-sm border border-black/10 bg-black/5 text-left"
+                className="group block w-full overflow-hidden rounded-sm border border-[color:var(--color-border)] bg-[color:var(--color-card-tint)] text-left"
                 whileTap={{ scale: 0.995 }}
               >
                 <Image
@@ -127,18 +127,18 @@ export function ProjectCaseStudy({ project, previousProject, nextProject }: Proj
       </RevealSection>
 
       <RevealSection className="mx-auto w-full max-w-7xl px-5 pb-18 pt-4 sm:px-8 lg:px-12">
-        <div className="flex flex-col gap-6 border-t border-black/10 pt-8 text-sm sm:flex-row sm:items-center sm:justify-between">
-          <Link href="/projects" className="w-fit text-xs tracking-[0.25em] uppercase text-black/65 hover:text-black">
+        <div className="flex flex-col gap-6 border-t border-[color:var(--color-border)] pt-8 text-sm sm:flex-row sm:items-center sm:justify-between">
+          <Link href="/projects" className="w-fit text-xs tracking-[0.25em] uppercase text-[color:var(--color-muted-2)] hover:text-[color:var(--color-ink)]">
             Volver a proyectos
           </Link>
           <div className="flex flex-wrap items-center gap-6">
             {previousProject ? (
-              <Link href={`/projects/${previousProject.slug}`} className="text-xs tracking-[0.22em] uppercase text-black/62 hover:text-black">
+              <Link href={`/projects/${previousProject.slug}`} className="text-xs tracking-[0.22em] uppercase text-[color:var(--color-muted-2)] hover:text-[color:var(--color-ink)]">
                 Anterior: {previousProject.title}
               </Link>
             ) : null}
             {nextProject ? (
-              <Link href={`/projects/${nextProject.slug}`} className="text-xs tracking-[0.22em] uppercase text-black/62 hover:text-black">
+              <Link href={`/projects/${nextProject.slug}`} className="text-xs tracking-[0.22em] uppercase text-[color:var(--color-muted-2)] hover:text-[color:var(--color-ink)]">
                 Siguiente: {nextProject.title}
               </Link>
             ) : null}
@@ -187,8 +187,8 @@ export function ProjectCaseStudy({ project, previousProject, nextProject }: Proj
 function FactItem({ label, value }: { label: string; value: string }) {
   return (
     <div className="space-y-1">
-      <p className="text-[10px] tracking-[0.22em] uppercase text-black/45">{label}</p>
-      <p className="text-sm leading-relaxed text-black/78">{value}</p>
+      <p className="text-[10px] tracking-[0.22em] uppercase text-[color:var(--color-muted-4)]">{label}</p>
+      <p className="text-sm leading-relaxed text-[color:var(--color-muted-1)]">{value}</p>
     </div>
   );
 }
@@ -197,7 +197,7 @@ function StoryBlock({ title, content }: { title: string; content: string }) {
   return (
     <RevealItem className="space-y-3">
       <h2 className="font-serif text-3xl">{title}</h2>
-      <p className="text-sm leading-relaxed text-black/72 sm:text-base">{content}</p>
+      <p className="text-sm leading-relaxed text-[color:var(--color-muted-2)] sm:text-base">{content}</p>
     </RevealItem>
   );
 }

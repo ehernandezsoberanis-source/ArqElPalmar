@@ -18,10 +18,10 @@ export function InteractiveLink({ href, label, className }: InteractiveLinkProps
       whileTap={{ scale: 0.97 }}
       className={className}
     >
-      <Link href={href} className="group relative inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-black/70">
+      <Link href={href} className="group relative inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-[color:var(--color-muted-2)]">
         <span>{label}</span>
         <motion.span
-          className="absolute -bottom-1 left-0 h-px w-full bg-black/70"
+          className="absolute -bottom-1 left-0 h-px w-full bg-[color:var(--color-muted-1)]"
           variants={buttonUnderlineVariants}
         />
       </Link>

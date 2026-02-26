@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import { FeaturedProjectsSpotlight } from "@/components/featured-projects-spotlight";
 import { HeroHome } from "@/components/hero-home";
 import { InteractiveLink } from "@/components/interactive-link";
-import { ProjectCard } from "@/components/project-card";
 import { RevealItem, RevealSection, StaggerGroup } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { ServiceCard } from "@/components/service-card";
-import { projects, services } from "@/lib/site-data";
+import { featuredProjectSlugs, projects, services } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Inicio",
@@ -13,6 +13,15 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const baseProject = projects[0]!;
+  const featuredProjects = featuredProjectSlugs
+    .map((slug) => projects.find((project) => project.slug === slug))
+    .filter((project): project is (typeof projects)[number] => Boolean(project));
+
+  const pickFeatured = (index: number) => featuredProjects[index] ?? projects[index] ?? baseProject;
+  const featuredPrimary = pickFeatured(0);
+  const featuredSecondary: [typeof projects[number], typeof projects[number]] = [pickFeatured(1), pickFeatured(2)];
+
   return (
     <div className="space-y-24 pb-24 sm:space-y-32 sm:pb-28">
       <HeroHome
@@ -22,7 +31,7 @@ export default function HomePage() {
         secondaryLine="Cada decisión de proyecto se construye como una secuencia precisa de atmósfera, proporción y permanencia."
       />
 
-      <RevealSection className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
+      <RevealSection id="servicios" className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
         <SectionHeading
           eyebrow="Filosofía del Estudio"
           title="Diseñamos con calma, editamos con rigor y construimos para perdurar."
@@ -49,13 +58,9 @@ export default function HomePage() {
           <SectionHeading eyebrow="Proyectos Destacados" title="Obras seleccionadas en residencial, corporativo y hotelería." />
           <InteractiveLink href="/projects" label="Ver todos" className="hidden md:block" />
         </div>
-        <StaggerGroup className="mt-10 grid gap-10 sm:mt-12 lg:grid-cols-2">
-          {projects.slice(0, 3).map((project) => (
-            <RevealItem key={project.slug}>
-              <ProjectCard project={project} />
-            </RevealItem>
-          ))}
-        </StaggerGroup>
+        <RevealItem>
+          <FeaturedProjectsSpotlight featuredPrimary={featuredPrimary} featuredSecondary={featuredSecondary} />
+        </RevealItem>
       </RevealSection>
     </div>
   );

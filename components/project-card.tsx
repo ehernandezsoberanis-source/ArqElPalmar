@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Project } from "@/lib/site-data";
 import {
   cardTitleHoverVariants,
@@ -18,18 +18,61 @@ type ProjectCardProps = {
   project: Project;
   showDescription?: boolean;
   onHoverChange?: (slug: string | null) => void;
+  size?: "default" | "primary" | "secondary";
+  className?: string;
 };
 
-export function ProjectCard({ project, showDescription = false, onHoverChange }: ProjectCardProps) {
+export function ProjectCard({
+  project,
+  showDescription = false,
+  onHoverChange,
+  size = "default",
+  className,
+}: ProjectCardProps) {
+  const HOVER_VIDEO_DELAY_MS = 3000;
+
   const reducedMotion = useReducedMotionSafe();
   const shouldReduceMotion = reducedMotion === true;
   const sharedLayoutEnabled = reducedMotion === false;
   const [isHovered, setIsHovered] = useState(false);
-  const [isTouchPreview, setIsTouchPreview] = useState(false);
+  const [isHoverVideoReady, setIsHoverVideoReady] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const hoverDelayTimerRef = useRef<number | null>(null);
 
-  const showPreview = shouldReduceMotion ? false : isHovered || isTouchPreview;
+  useEffect(() => {
+    // Treat as mobile only when device is truly touch-first.
+    const media = window.matchMedia("(hover: none) and (pointer: coarse)");
+    const update = () => setIsMobile(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (hoverDelayTimerRef.current !== null) {
+      window.clearTimeout(hoverDelayTimerRef.current);
+      hoverDelayTimerRef.current = null;
+    }
+
+    if (isHovered && !isMobile && project.hoverVideo) {
+      hoverDelayTimerRef.current = window.setTimeout(() => {
+        setIsHoverVideoReady(true);
+      }, HOVER_VIDEO_DELAY_MS);
+    }
+  }, [HOVER_VIDEO_DELAY_MS, isHovered, isMobile, project.hoverVideo]);
+
+  const showVideoPreview = Boolean(project.hoverVideo) && isHovered && isHoverVideoReady && !isMobile;
+  const isFeaturedVariant = size !== "default";
+  const titleClass =
+    size === "primary"
+      ? "font-serif text-3xl leading-tight sm:text-4xl"
+      : size === "secondary"
+        ? "font-serif text-2xl leading-tight sm:text-[30px]"
+        : "font-serif text-2xl leading-tight sm:text-3xl";
+  const contentPaddingClass = size === "primary" ? "p-6 sm:p-7" : "p-5 sm:p-6";
 
   const activatePreview = () => {
+    setIsHoverVideoReady(false);
     setIsHovered(true);
     onHoverChange?.(project.slug);
   };
@@ -45,14 +88,12 @@ export function ProjectCard({ project, showDescription = false, onHoverChange }:
       whileHover={shouldReduceMotion ? undefined : "hover"}
       whileTap={{ scale: 0.98 }}
       variants={tactileProjectCardVariants}
-      className="group overflow-hidden rounded-sm border bg-[color:var(--color-paper-alt)]"
-      onHoverStart={activatePreview}
-      onHoverEnd={deactivatePreview}
-      onTouchStart={() => setIsTouchPreview(true)}
-      onTouchEnd={() => window.setTimeout(() => setIsTouchPreview(false), 180)}
+      className={`group overflow-hidden rounded-sm border border-[color:var(--color-border)] bg-[color:var(--color-paper-alt)] ${className ?? ""}`}
+      onPointerEnter={activatePreview}
+      onPointerLeave={deactivatePreview}
     >
       <Link href={`/projects/${project.slug}`} className="block">
-        <div className="relative overflow-hidden bg-black/5">
+        <div className="relative overflow-hidden bg-[color:var(--color-card-tint)]">
           <motion.div
             variants={tactileProjectImageZoomVariants}
             layoutId={sharedLayoutEnabled ? `project-media-${project.slug}` : undefined}
@@ -68,35 +109,25 @@ export function ProjectCard({ project, showDescription = false, onHoverChange }:
             />
 
             <AnimatePresence>
-              {showPreview ? (
+              {showVideoPreview ? (
                 <motion.div
-                  key="hover-preview"
+                  key="hover-video-preview"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.28 }}
-                  className="absolute inset-0"
+                  transition={{ duration: 0.38 }}
+                  className="absolute inset-0 z-20"
                 >
-                  {project.hoverVideo ? (
-                    <video
-                      className="h-full w-full object-cover"
-                      src={project.hoverVideo}
-                      poster={project.coverImage}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                    />
-                  ) : (
-                    <Image
-                      src={project.hoverImage}
-                      alt={`${project.title} preview`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      loading="lazy"
-                    />
-                  )}
+                  <video
+                    className="h-full w-full object-cover"
+                    src={project.hoverVideo}
+                    poster={project.coverImage}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                  />
                 </motion.div>
               ) : null}
             </AnimatePresence>
@@ -124,16 +155,21 @@ export function ProjectCard({ project, showDescription = false, onHoverChange }:
           </motion.div>
         </div>
 
-        <div className="p-5 sm:p-6">
+        <div className={contentPaddingClass}>
+          {isFeaturedVariant ? (
+            <p className="text-[10px] tracking-[0.22em] uppercase text-[color:var(--color-muted-3)]">
+              {project.category} • {project.location} • {project.year}
+            </p>
+          ) : null}
           {/* Keep slug-based layoutId stable for new projects to preserve shared transitions. */}
           <motion.h3
             variants={cardTitleHoverVariants}
             layoutId={sharedLayoutEnabled ? `project-title-${project.slug}` : undefined}
-            className="font-serif text-2xl leading-tight sm:text-3xl"
+            className={`${isFeaturedVariant ? "mt-3" : ""} ${titleClass}`}
           >
             {project.title}
           </motion.h3>
-          {showDescription ? <p className="mt-3 text-sm leading-relaxed text-black/62">{project.description}</p> : null}
+          {showDescription ? <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted-2)]">{project.description}</p> : null}
         </div>
       </Link>
     </motion.article>

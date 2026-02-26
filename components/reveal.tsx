@@ -8,6 +8,7 @@ type RevealSectionProps = {
   className?: string;
   withBlur?: boolean;
   as?: "section" | "div" | "article";
+  id?: string;
 };
 
 type RevealItemProps = {
@@ -29,11 +30,12 @@ const itemTags = {
   li: motion.li,
 };
 
-export function RevealSection({ children, className, withBlur = true, as = "section" }: RevealSectionProps) {
+export function RevealSection({ children, className, withBlur = true, as = "section", id }: RevealSectionProps) {
   const MotionTag = sectionTags[as];
 
   return (
     <MotionTag
+      id={id}
       className={className}
       variants={sectionRevealVariants(withBlur)}
       initial="hidden"

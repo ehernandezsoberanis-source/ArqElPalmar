@@ -18,7 +18,7 @@ export function SectionHeading({ eyebrow, title, description }: SectionHeadingPr
       animate="visible"
     >
       {eyebrow ? (
-        <motion.p variants={fadeUpItemVariants} className="text-xs tracking-[0.25em] uppercase text-black/55">
+        <motion.p variants={fadeUpItemVariants} className="text-xs tracking-[0.25em] uppercase text-[color:var(--color-muted-3)]">
           {eyebrow}
         </motion.p>
       ) : null}
@@ -26,7 +26,7 @@ export function SectionHeading({ eyebrow, title, description }: SectionHeadingPr
         {title}
       </motion.h2>
       {description ? (
-        <motion.p variants={fadeUpItemVariants} className="max-w-2xl text-sm leading-relaxed text-black/65 sm:text-base">
+        <motion.p variants={fadeUpItemVariants} className="max-w-2xl text-sm leading-relaxed text-[color:var(--color-muted-2)] sm:text-base">
           {description}
         </motion.p>
       ) : null}

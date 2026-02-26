@@ -116,22 +116,22 @@ export const projects: Project[] = [
     longitude: -80.1423,
     year: "2025",
     description: "Residencia frente al agua organizada alrededor de un patio ajardinado y galerías de sombra profunda.",
-    coverImage: "/images/projects/coastal/hero.svg",
-    hoverImage: "/images/projects/coastal/gallery-1.svg",
-    hoverVideo: "/media/hero-architecture.mp4",
+    coverImage: "/images/projects/coastal/hero.jpg",
+    hoverImage: "/images/projects/coastal/gallery-1.jpg",
+    hoverVideo: "/media/projects/coastal-construction.mp4",
     services: ["Arquitectura", "Arquitectura Interior", "Coordinación de Paisaje"],
     area: "980 m²",
     client: "Cliente Privado",
     hero: {
       type: "video",
       src: "/media/hero-architecture.mp4",
-      poster: "/images/projects/coastal/hero.svg",
+      poster: "/images/projects/coastal/hero.jpg",
     },
     gallery: [
-      { src: "/images/projects/coastal/hero.svg", alt: "Vista principal de la casa patio costera", width: 2000, height: 1250 },
-      { src: "/images/projects/coastal/gallery-1.svg", alt: "Patio central y circulación cubierta", width: 2000, height: 1250 },
-      { src: "/images/projects/coastal/gallery-2.svg", alt: "Composición de fachada al atardecer", width: 2000, height: 1250 },
-      { src: "/images/projects/coastal/gallery-3.svg", alt: "Salón interior con luz filtrada", width: 2000, height: 1250 },
+      { src: "/images/projects/coastal/hero.jpg", alt: "Vista principal de la casa patio costera", width: 2000, height: 1250 },
+      { src: "/images/projects/coastal/gallery-1.jpg", alt: "Patio central y circulación cubierta", width: 2000, height: 1250 },
+      { src: "/images/projects/coastal/gallery-2.jpg", alt: "Composición de fachada al atardecer", width: 2000, height: 1250 },
+      { src: "/images/projects/coastal/gallery-3.jpg", alt: "Salón interior con luz filtrada", width: 2000, height: 1250 },
     ],
     story: {
       challenge:
@@ -151,18 +151,19 @@ export const projects: Project[] = [
     longitude: -99.1332,
     year: "2024",
     description: "Experiencia de llegada esculpida por masa pétrea, detalles en bronce cálido y una iluminación dramática.",
-    coverImage: "/images/projects/monolith/hero.svg",
-    hoverImage: "/images/projects/monolith/gallery-1.svg",
+    coverImage: "/images/projects/monolith/hero.jpg",
+    hoverImage: "/images/projects/monolith/gallery-1.jpg",
+    hoverVideo: "/media/projects/monolith-construction.mp4",
     services: ["Diseño Conceptual", "Arquitectura Interior", "Mobiliario a Medida"],
     area: "640 m²",
     hero: {
       type: "image",
-      src: "/images/projects/monolith/hero.svg",
+      src: "/images/projects/monolith/hero.jpg",
     },
     gallery: [
-      { src: "/images/projects/monolith/hero.svg", alt: "Escena principal del lobby", width: 2000, height: 1250 },
-      { src: "/images/projects/monolith/gallery-1.svg", alt: "Distribución de recepción y lounge", width: 2000, height: 1250 },
-      { src: "/images/projects/monolith/gallery-2.svg", alt: "Detalle de mobiliario personalizado", width: 2000, height: 1250 },
+      { src: "/images/projects/monolith/hero.jpg", alt: "Escena principal del lobby", width: 2000, height: 1250 },
+      { src: "/images/projects/monolith/gallery-1.jpg", alt: "Distribución de recepción y lounge", width: 2000, height: 1250 },
+      { src: "/images/projects/monolith/gallery-2.jpg", alt: "Detalle de mobiliario personalizado", width: 2000, height: 1250 },
     ],
     story: {
       challenge:
@@ -182,19 +183,20 @@ export const projects: Project[] = [
     longitude: -97.7431,
     year: "2026",
     description: "Campus creativo de baja altura con patios porosos y fachadas sensibles al clima local.",
-    coverImage: "/images/projects/atelier/hero.svg",
-    hoverImage: "/images/projects/atelier/gallery-2.svg",
+    coverImage: "/images/projects/atelier/hero.jpg",
+    hoverImage: "/images/projects/atelier/gallery-2.jpg",
+    hoverVideo: "/media/projects/atelier-construction.mp4",
     services: ["Plan Maestro", "Arquitectura", "Estrategia de Entorno Laboral"],
     area: "14.500 m²",
     client: "Grupo Atelier",
     hero: {
       type: "image",
-      src: "/images/projects/atelier/hero.svg",
+      src: "/images/projects/atelier/hero.jpg",
     },
     gallery: [
-      { src: "/images/projects/atelier/hero.svg", alt: "Perspectiva aérea del campus", width: 2000, height: 1250 },
-      { src: "/images/projects/atelier/gallery-1.svg", alt: "Conexiones entre patios", width: 2000, height: 1250 },
-      { src: "/images/projects/atelier/gallery-2.svg", alt: "Interior colaborativo abierto", width: 2000, height: 1250 },
+      { src: "/images/projects/atelier/hero.jpg", alt: "Perspectiva aérea del campus", width: 2000, height: 1250 },
+      { src: "/images/projects/atelier/gallery-1.jpg", alt: "Conexiones entre patios", width: 2000, height: 1250 },
+      { src: "/images/projects/atelier/gallery-2.jpg", alt: "Interior colaborativo abierto", width: 2000, height: 1250 },
     ],
     story: {
       challenge:
@@ -214,17 +216,18 @@ export const projects: Project[] = [
     longitude: -105.9378,
     year: "2023",
     description: "Pabellón público compacto ubicado en una cresta para enmarcar horizontes amplios del desierto.",
-    coverImage: "/images/projects/ridge/hero.svg",
-    hoverImage: "/images/projects/ridge/gallery-1.svg",
+    coverImage: "/images/projects/ridge/hero.jpg",
+    hoverImage: "/images/projects/ridge/gallery-1.jpg",
+    hoverVideo: "/media/projects/ridge-construction.mp4",
     services: ["Arquitectura", "Diseño de Espacio Público", "Investigación Material"],
     hero: {
       type: "image",
-      src: "/images/projects/ridge/hero.svg",
+      src: "/images/projects/ridge/hero.jpg",
     },
     gallery: [
-      { src: "/images/projects/ridge/hero.svg", alt: "Silueta del pabellón sobre la cresta", width: 2000, height: 1250 },
-      { src: "/images/projects/ridge/gallery-1.svg", alt: "Encuentro público bajo cubierta", width: 2000, height: 1250 },
-      { src: "/images/projects/ridge/gallery-2.svg", alt: "Detalle tectónico de materialidad", width: 2000, height: 1250 },
+      { src: "/images/projects/ridge/hero.jpg", alt: "Silueta del pabellón sobre la cresta", width: 2000, height: 1250 },
+      { src: "/images/projects/ridge/gallery-1.jpg", alt: "Encuentro público bajo cubierta", width: 2000, height: 1250 },
+      { src: "/images/projects/ridge/gallery-2.jpg", alt: "Detalle tectónico de materialidad", width: 2000, height: 1250 },
     ],
     story: {
       challenge:
@@ -236,3 +239,11 @@ export const projects: Project[] = [
     },
   },
 ];
+
+// Spotlight selection for Home "Proyectos Destacados".
+// Swap slugs here to curate the featured trio.
+export const featuredProjectSlugs = [
+  "coastal-courtyard-house",
+  "monolith-hotel-lobby",
+  "atelier-office-campus",
+] as const;

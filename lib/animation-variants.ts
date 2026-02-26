@@ -72,11 +72,11 @@ export const buttonUnderlineVariants: Variants = {
 export const tactileCardVariants: Variants = {
   rest: {
     y: 0,
-    boxShadow: "0 8px 22px rgba(0,0,0,0)",
+    boxShadow: "var(--shadow-card-rest)",
   },
   hover: {
     y: -6,
-    boxShadow: "0 18px 34px rgba(0,0,0,0.14)",
+    boxShadow: "var(--shadow-card-hover)",
     transition: { duration: 0.3, ease: cinematicEase },
   },
 };
@@ -95,14 +95,14 @@ export const tactileProjectCardVariants: Variants = {
   rest: {
     y: 0,
     scale: 1,
-    boxShadow: "0 10px 24px rgba(0,0,0,0)",
-    borderColor: "rgba(0,0,0,0.08)",
+    boxShadow: "var(--shadow-project-rest)",
+    borderColor: "var(--color-border)",
   },
   hover: {
     y: -6,
     scale: 1.01,
-    boxShadow: "0 20px 40px rgba(0,0,0,0.14)",
-    borderColor: "rgba(0,0,0,0.18)",
+    boxShadow: "var(--shadow-project-hover)",
+    borderColor: "var(--color-border-strong)",
     transition: { duration: 0.3, ease: cinematicEase },
   },
 };
