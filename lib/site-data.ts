@@ -2,6 +2,7 @@ export type Service = {
   id: string;
   title: string;
   description: string;
+  image: string;
 };
 
 export type ProjectCategory = "Residencial" | "Comercial" | "Planeamiento Urbano" | "Cultural";
@@ -70,31 +71,37 @@ export const services: Service[] = [
     id: "01",
     title: "Arquitectura Residencial",
     description: "Viviendas privadas diseñadas con proporciones serenas y paletas materiales atemporales.",
+    image: "/Servicios/ArquitecturaResidencial.jpg",
   },
   {
     id: "02",
     title: "Diseño Hotelero",
     description: "Espacios de hospitalidad boutique que equilibran atmósfera, circulación e identidad.",
+    image: "/Servicios/Dise%C3%B1oHotelero.jpg",
   },
   {
     id: "03",
     title: "Arquitectura Interior",
     description: "Sistemas interiores refinados donde luz, estructura y oficio definen el carácter.",
+    image: "/Servicios/ArquitecturaInterior.jpg",
   },
   {
     id: "04",
     title: "Plan Maestro",
     description: "Estrategias de planificación urbana y costera guiadas por el contexto y la resiliencia.",
+    image: "/Servicios/PlanMaestro.jpg",
   },
   {
     id: "05",
     title: "Renovación + Reuso Adaptativo",
     description: "Transformación de estructuras existentes mediante detalle preciso y criterio.",
+    image: "/Servicios/Renovacion.jpg",
   },
   {
     id: "06",
     title: "Asesoría de Diseño",
     description: "Consultoría en etapa temprana para terreno, concepto y decisiones de desarrollo.",
+    image: "/Servicios/Asesoria.jpg",
   },
 ];
 
@@ -109,15 +116,16 @@ export const projectCategories: Array<ProjectCategory | "Todas"> = [
 export const projects: Project[] = [
   {
     slug: "coastal-courtyard-house",
-    title: "Casa Patio Costera",
+    title: "Plaza Real",
     category: "Residencial",
-    location: "Biscayne Bay, FL",
-    latitude: 25.7921,
-    longitude: -80.1423,
+    location: "Zihuatanejo, Guerrero, México",
+    latitude: 17.6417,
+    longitude: -101.5517,
     year: "2025",
-    description: "Residencia frente al agua organizada alrededor de un patio ajardinado y galerías de sombra profunda.",
-    coverImage: "/images/projects/coastal/hero.jpg",
-    hoverImage: "/images/projects/coastal/gallery-1.jpg",
+    description:
+      "Plaza Real es un espacio de uso mixto, que combina áreas deportivas, culturales y gastronómicas en un diseño moderno y funcional. Creado para ser un punto de encuentro social en Zihuatanejo. Cuenta con un par de canchas modernas con instalaciones cómodas e iluminación óptima y un área comercial con gran diversidad gastronómica.",
+    coverImage: "/Cards/PlazaReal.jpg",
+    hoverImage: "/Cards/PlazaReal.jpg",
     hoverVideo: "/media/projects/coastal-construction.mp4",
     services: ["Arquitectura", "Arquitectura Interior", "Coordinación de Paisaje"],
     area: "980 m²",
@@ -144,15 +152,16 @@ export const projects: Project[] = [
   },
   {
     slug: "monolith-hotel-lobby",
-    title: "Lobby del Hotel Monolith",
+    title: "Restaurant The General's",
     category: "Comercial",
-    location: "Ciudad de México, MX",
-    latitude: 19.4326,
-    longitude: -99.1332,
+    location: "Ixtapa, Zihuatanejo, Guerrero, México",
+    latitude: 17.664,
+    longitude: -101.606,
     year: "2024",
-    description: "Experiencia de llegada esculpida por masa pétrea, detalles en bronce cálido y una iluminación dramática.",
-    coverImage: "/images/projects/monolith/hero.jpg",
-    hoverImage: "/images/projects/monolith/gallery-1.jpg",
+    description:
+      "El proyecto \"The Generals Sports Bar & Restaurant\" consistió en el desarrollo integral de obra civil, desde la cimentación hasta la etapa de \"obra gris\". Este espacio fue concebido con una estructura sólida y funcional, diseñada para adaptarse a las necesidades operativas del restaurante y bar deportivo.",
+    coverImage: "/Cards/Generals.PNG",
+    hoverImage: "/Cards/Generals.PNG",
     hoverVideo: "/media/projects/monolith-construction.mp4",
     services: ["Diseño Conceptual", "Arquitectura Interior", "Mobiliario a Medida"],
     area: "640 m²",
@@ -176,15 +185,16 @@ export const projects: Project[] = [
   },
   {
     slug: "atelier-office-campus",
-    title: "Campus Corporativo Atelier",
+    title: "Bonanza Condominios",
     category: "Planeamiento Urbano",
-    location: "Austin, TX",
-    latitude: 30.2672,
-    longitude: -97.7431,
+    location: "Ixtapa, Zihuatanejo, Guerrero, México",
+    latitude: 17.6585,
+    longitude: -101.5825,
     year: "2026",
-    description: "Campus creativo de baja altura con patios porosos y fachadas sensibles al clima local.",
-    coverImage: "/images/projects/atelier/hero.jpg",
-    hoverImage: "/images/projects/atelier/gallery-2.jpg",
+    description:
+      "Compuesto por un total de 28 departamentos, Bonanza Condominios ofrece un estilo de vida cómodo y accesible, en un modelo establecido de dos recámaras y dos baños completos, complementado con amenidades tales como albercas con chapoteadero, cabañas de uso múltiple, juegos para niños y áreas verdes.",
+    coverImage: "/Cards/BonansaCondominios.PNG",
+    hoverImage: "/Cards/BonansaCondominios.PNG",
     hoverVideo: "/media/projects/atelier-construction.mp4",
     services: ["Plan Maestro", "Arquitectura", "Estrategia de Entorno Laboral"],
     area: "14.500 m²",
@@ -209,15 +219,16 @@ export const projects: Project[] = [
   },
   {
     slug: "ridge-cultural-pavilion",
-    title: "Pabellón Cultural Ridge",
+    title: "Plaza Cocos",
     category: "Cultural",
-    location: "Santa Fe, NM",
-    latitude: 35.687,
-    longitude: -105.9378,
+    location: "La Puerta, Ixtapa-Zihuatanejo, Guerrero, México",
+    latitude: 17.6572,
+    longitude: -101.5798,
     year: "2023",
-    description: "Pabellón público compacto ubicado en una cresta para enmarcar horizontes amplios del desierto.",
-    coverImage: "/images/projects/ridge/hero.jpg",
-    hoverImage: "/images/projects/ridge/gallery-1.jpg",
+    description:
+      "Plaza Cocos es un espacio de uso mixto, que combina actividades deportivas, gastronómicas y culturales en Col. La Puerta. El proyecto destaca por su enfoque contemporáneo al implementar un sistema constructivo basado en contenedores marítimos, aprovechando su versatilidad para crear locales comerciales modernos y estéticamente atractivos.",
+    coverImage: "/Cards/PlazaCocos.PNG",
+    hoverImage: "/Cards/PlazaCocos.PNG",
     hoverVideo: "/media/projects/ridge-construction.mp4",
     services: ["Arquitectura", "Diseño de Espacio Público", "Investigación Material"],
     hero: {
